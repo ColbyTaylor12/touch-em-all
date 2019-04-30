@@ -14,3 +14,16 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/guest-home', function () {
+    return view('guest-home');
+});
+
+Route::get('/user-profile', function () {
+    return view('user-profile');
+});
+
+Route::get('/stadium-profile', function () {
+    return view('stadium-profile');
+});
+
