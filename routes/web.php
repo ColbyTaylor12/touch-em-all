@@ -27,3 +27,7 @@ Route::get('/stadium-profile', function () {
     return view('stadium-profile');
 });
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

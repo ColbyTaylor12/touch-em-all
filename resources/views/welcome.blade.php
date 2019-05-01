@@ -48,9 +48,22 @@
                 border: 5px dotted red;
                 width: 100%;
             }
+
+            #footer {
+                background-color: grey;
+                color: whitesmoke;
+                text-align: center;
+            }
+
+            .link {
+                color: whitesmoke;
+                font-size: 40px;
+            }
         }
+
         /*iPhone X ------*/
-        @media only screen and (min-device-width: 375px) and (max-device-height: 812px) and (orientation : landscape) and (-webkit-device-pixel-ratio: 3){
+
+        @media only screen and (min-device-width: 375px) and (max-device-height: 812px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 3) {
             .button {
                 background-color: grey;
                 color: whitesmoke;
@@ -80,8 +93,18 @@
                 padding-bottom: 300px;
                 padding-top: 100px; */
             }
+            #footer {
+                background-color: grey;
+                color: whitesmoke;
+                text-align: center;
+            }
+            .link {
+                color: whitesmoke;
+                font-size: 20px;
+            }
         }
-        @media only screen and (min-device-width: 375px) and (max-device-height: 812px) and (orientation : portrait) and (-webkit-device-pixel-ratio: 3){
+
+        @media only screen and (min-device-width: 375px) and (max-device-height: 812px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 3) {
             .button {
                 background-color: grey;
                 color: whitesmoke;
@@ -107,26 +130,38 @@
                 color: whitesmoke;
                 font-family: 'Coda', cursive;
                 text-align: center;
-                font-weight: 100;
+                font-weight: 500;
                 padding-bottom: 10px;
                 padding-top: 10px;
+            }
+            #footer {
+                background-color: grey;
+                color: whitesmoke;
+                text-align: center;
+            }
+            .link {
+                color: whitesmoke;
+                font-size: 20px;
             }
         }
     </style>
 </head>
 
-<body class="pb-5">
+<body>
     <div class="jumbotron jumbotron-fluid" id="header">
         <div class="container">
             <h1 class="display-4">Touch Em All</h1>
             <p class="lead">The place to plan your jounrey around the MLB.</p>
         </div>
         <div class="row pt-5">
-            <div class="col-6 pt-5">
-                <a href="#" class="button">Sign Up / Sign In</a>
+            <div class="col-4 pt-5">
+                <a href="{{ route('register') }}" class="button">Sign Up</a>
             </div>
-            <div class="col-6 pt-5">
-                <a href="/guest-home" class="button">Continue as Guest</a>
+            <div class="col-4 pt-5">
+                <a href="{{ route('login') }}" class="button">Sign In</a>
+            </div>
+            <div class="col-4 pt-5">
+                <a href="/guest-home" class="button">Guest</a>
             </div>
         </div>
     </div>
@@ -145,22 +180,30 @@
 
     <div class="container pt-5 pb-3" id="About">
         <div class="col-12">
-            <h1>Our Mission</h1>
+            <h1>Our Story</h1>
             <h4>
-                The idea for this app started like most with a simple conversation. My brother and I are both avid baseball fans and were
+                The idea for this site started like most with a simple conversation. My brother and I are both avid baseball fans and were
                 discussing the parks he had visited over the last year. We both want to see each stadium at least once and
                 I realized I'm falling behind quickly with his recent adventures. Since I only find out about the parks he
-                has visited in our conversations the wheels started turning. This site is a tool to help others both plan
-                their journey to all the stadiums or to track progress of friends on thier own journies around the league.
-                However that is not the only intention of this project. I also want this to be a platform to help get more
-                people interested in the sport that I love. This site will also feature average prices for the items that
-                make up your majority cost on a ballpark visit. The averages all start with calculated averages from the
-                previous season but with the intent of just being a starting point. The real magic is that when you, the
-                user, add your prices and experiences on the site we create an average price based on what the people using
-                this site are paying. Show off your seats, give props or warn people of stadium issues after each trip by
-                adding even more info to your experiences so that your fellow fans can take your advice or learn from your
-                mistakes. All in all I just hope people find this a useful tool and a place to interact with fans of the
-                best sport on the planet.
+                has visited in our conversations the wheels started turning.
+        </div>
+        <div class="col-12">
+            <h1>Our Mission</h1>
+            <ul>
+                <li>Provide a way to track your journey through the MLB</li>
+                <li>Check in on others journey</li>
+                <li>Provide Stadium Cost Averages</li>
+                <li>Interactions among avid fans and newcomers</li>
+                <li>Informative service to attract more fans to stadiums</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="container pt-5">
+        <div class="row" id="footer">
+            <div class="col-12">
+                <a href="#" class="link">How To Link</a>
+            </div>
         </div>
     </div>
 
