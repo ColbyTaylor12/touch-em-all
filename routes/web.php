@@ -27,6 +27,10 @@ Route::get('/stadium-profile', function () {
     return view('stadium-profile');
 });
 
+Route::get('/stadium-list', function () {
+    return view('stadium-list');
+});
+
 Route::get('/create-profile', function () {
     return view('create-profile');
 });
