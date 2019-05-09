@@ -1806,9 +1806,9 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/StadiumList.vue?vue&type=script&lang=js&":
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/StadiumCard.vue?vue&type=script&lang=js&":
 /*!**********************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/StadiumList.vue?vue&type=script&lang=js& ***!
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/StadiumCard.vue?vue&type=script&lang=js& ***!
   \**********************************************************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -1823,13 +1823,170 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: "StadiumList",
+  name: "stadiumcard",
+  props: ["id", "name", "home_team", "location", "year_opened", "team_name", "league"],
+  computed: {
+    image: function image() {
+      return '/img/stadiums/' + this.id + '.jpg';
+    },
+    stadiumURL: function stadiumURL() {
+      return "/stadium-profile/" + this.id;
+    }
+  },
+  data: function data() {
+    return {};
+  },
+  created: function created() {}
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/StadiumList.vue?vue&type=script&lang=js&":
+/*!**********************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/StadiumList.vue?vue&type=script&lang=js& ***!
+  \**********************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _StadiumCard_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./StadiumCard.vue */ "./resources/js/components/StadiumCard.vue");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+function Stadium(_ref) {
+  var id = _ref.id,
+      name = _ref.name,
+      home_team = _ref.home_team,
+      location = _ref.location,
+      year_opened = _ref.year_opened;
+  this.id = id;
+  this.name = name;
+  this.home_team = home_team;
+  this.location = location;
+  this.year_opened = year_opened;
+}
+
+function Team(_ref2) {
+  var id = _ref2.id,
+      name = _ref2.name,
+      home_team = _ref2.home_team,
+      location = _ref2.location,
+      year_opened = _ref2.year_opened;
+  this.id = id;
+  this.team_name = team_name;
+  this.league = league;
+}
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: "stadiumlist",
   data: function data() {
     return {
-      stadiums: []
+      stadiums: null,
+      teams: null,
+      teamNames: [],
+      newObj: null
     };
   },
+  methods: {
+    setTeamName: function setTeamName() {}
+  },
+  computed: {
+    getTeamName: function getTeamName() {
+      for (var i = 0; i < this.teams.length; i++) {
+        this.teamNames.push(this.teams[i].team_name);
+      }
+
+      return this.teamNames;
+    },
+    getFullStadium: function getFullStadium() {}
+  },
+  compnonents: {
+    stadiumcard: _StadiumCard_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
+  created: function created() {
+    var _this = this;
+
+    axios.get('/stadiums').then(function (response) {
+      return _this.stadiums = response.data;
+    });
+    axios.get('/teams').then(function (response) {
+      return _this.teams = response.data;
+    });
+  },
+  mounted: function mounted() {}
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/StadiumProfile.vue?vue&type=script&lang=js&":
+/*!*************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/StadiumProfile.vue?vue&type=script&lang=js& ***!
+  \*************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: "stadiumprofile",
+  props: [],
+  computed: {
+    image: function image() {//   return '/img/stadiums/${this.id}.png';
+    },
+    getID: function getID() {
+      return this.id;
+    }
+  },
+  methods: {},
+  data: function data() {
+    return {
+      stadium: [],
+      id: null,
+      currentUrl: null
+    };
+  },
+  mounted: function mounted() {},
   created: function created() {}
 });
 
@@ -37216,6 +37373,55 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/StadiumCard.vue?vue&type=template&id=44d97ddc&scoped=true&":
+/*!**************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/StadiumCard.vue?vue&type=template&id=44d97ddc&scoped=true& ***!
+  \**************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "text-center p-5" }, [
+    _c("div", { staticClass: "card p-3" }, [
+      _c("img", {
+        staticClass: "card-img-left",
+        attrs: { src: this.image, alt: this.name }
+      }),
+      _vm._v(" "),
+      _c("div", { staticClass: "card-body" }, [
+        _c("h5", { staticClass: "card-title" }, [_vm._v(_vm._s(this.name))]),
+        _vm._v(" "),
+        _c("ul", { staticClass: "card-text" }, [
+          _c("li", [_vm._v("Location: " + _vm._s(this.location))]),
+          _vm._v(" "),
+          _c("li", [_vm._v("Year Opened: " + _vm._s(this.year_opened))]),
+          _vm._v(" "),
+          _c("li", [_vm._v("Home Team: " + _vm._s(this.team_name))])
+        ]),
+        _vm._v(" "),
+        _c(
+          "a",
+          { staticClass: "btn btn-primary", attrs: { href: this.stadiumURL } },
+          [_vm._v("Stadium Profile")]
+        )
+      ])
+    ])
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/StadiumList.vue?vue&type=template&id=2e45ffa0&scoped=true&":
 /*!**************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/StadiumList.vue?vue&type=template&id=2e45ffa0&scoped=true& ***!
@@ -37231,7 +37437,84 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div")
+  return _c("div", {}, [
+    _vm._m(0),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "card-deck" },
+      _vm._l(_vm.stadiums, function(stadium) {
+        return _c(
+          "stadium-card",
+          _vm._b(
+            { key: stadium.id, staticClass: "text-center mx-auto pb-3" },
+            "stadium-card",
+            stadium,
+            false
+          )
+        )
+      }),
+      1
+    )
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "heading text-center" }, [
+      _c("h1", [_vm._v("Stadiums")])
+    ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/StadiumProfile.vue?vue&type=template&id=24cb17d2&scoped=true&":
+/*!*****************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/StadiumProfile.vue?vue&type=template&id=24cb17d2&scoped=true& ***!
+  \*****************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _c("div", { staticClass: "card" }, [
+      _c("img", {
+        staticClass: "card-img-left",
+        attrs: { src: "", alt: "name" }
+      }),
+      _vm._v(" "),
+      _c("div", { staticClass: "card-body" }, [
+        _c("h5", { staticClass: "card-title" }, [_vm._v("Average Prices")]),
+        _vm._v(" "),
+        _c("ul", { staticClass: "card-text" }, [
+          _c("li", [_vm._v(_vm._s(this.location))]),
+          _vm._v(" "),
+          _c("li", [_vm._v(_vm._s(this.year_opened))]),
+          _vm._v(" "),
+          _c("li", [_vm._v("List item")])
+        ]),
+        _vm._v(" "),
+        _c(
+          "a",
+          { staticClass: "btn btn-primary", attrs: { href: this.stadiumURL } },
+          [_vm._v("Stadium Profile")]
+        )
+      ])
+    ])
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -49402,7 +49685,9 @@ window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default));
 
 Vue.component('createprofile', __webpack_require__(/*! ./components/CreateProfile.vue */ "./resources/js/components/CreateProfile.vue")["default"]);
-Vue.component('StadiumList', __webpack_require__(/*! ./components/StadiumList.vue */ "./resources/js/components/StadiumList.vue")["default"]);
+Vue.component('stadium-list', __webpack_require__(/*! ./components/StadiumList.vue */ "./resources/js/components/StadiumList.vue")["default"]);
+Vue.component('stadium-card', __webpack_require__(/*! ./components/StadiumCard.vue */ "./resources/js/components/StadiumCard.vue")["default"]);
+Vue.component('stadium-profile', __webpack_require__(/*! ./components/StadiumProfile.vue */ "./resources/js/components/StadiumProfile.vue")["default"]);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -49542,6 +49827,75 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/StadiumCard.vue":
+/*!*************************************************!*\
+  !*** ./resources/js/components/StadiumCard.vue ***!
+  \*************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _StadiumCard_vue_vue_type_template_id_44d97ddc_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./StadiumCard.vue?vue&type=template&id=44d97ddc&scoped=true& */ "./resources/js/components/StadiumCard.vue?vue&type=template&id=44d97ddc&scoped=true&");
+/* harmony import */ var _StadiumCard_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./StadiumCard.vue?vue&type=script&lang=js& */ "./resources/js/components/StadiumCard.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _StadiumCard_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _StadiumCard_vue_vue_type_template_id_44d97ddc_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _StadiumCard_vue_vue_type_template_id_44d97ddc_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  "44d97ddc",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/StadiumCard.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/StadiumCard.vue?vue&type=script&lang=js&":
+/*!**************************************************************************!*\
+  !*** ./resources/js/components/StadiumCard.vue?vue&type=script&lang=js& ***!
+  \**************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_StadiumCard_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./StadiumCard.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/StadiumCard.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_StadiumCard_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/StadiumCard.vue?vue&type=template&id=44d97ddc&scoped=true&":
+/*!********************************************************************************************!*\
+  !*** ./resources/js/components/StadiumCard.vue?vue&type=template&id=44d97ddc&scoped=true& ***!
+  \********************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_StadiumCard_vue_vue_type_template_id_44d97ddc_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./StadiumCard.vue?vue&type=template&id=44d97ddc&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/StadiumCard.vue?vue&type=template&id=44d97ddc&scoped=true&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_StadiumCard_vue_vue_type_template_id_44d97ddc_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_StadiumCard_vue_vue_type_template_id_44d97ddc_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
 /***/ "./resources/js/components/StadiumList.vue":
 /*!*************************************************!*\
   !*** ./resources/js/components/StadiumList.vue ***!
@@ -49606,6 +49960,75 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_StadiumList_vue_vue_type_template_id_2e45ffa0_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_StadiumList_vue_vue_type_template_id_2e45ffa0_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/StadiumProfile.vue":
+/*!****************************************************!*\
+  !*** ./resources/js/components/StadiumProfile.vue ***!
+  \****************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _StadiumProfile_vue_vue_type_template_id_24cb17d2_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./StadiumProfile.vue?vue&type=template&id=24cb17d2&scoped=true& */ "./resources/js/components/StadiumProfile.vue?vue&type=template&id=24cb17d2&scoped=true&");
+/* harmony import */ var _StadiumProfile_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./StadiumProfile.vue?vue&type=script&lang=js& */ "./resources/js/components/StadiumProfile.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _StadiumProfile_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _StadiumProfile_vue_vue_type_template_id_24cb17d2_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _StadiumProfile_vue_vue_type_template_id_24cb17d2_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  "24cb17d2",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/StadiumProfile.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/StadiumProfile.vue?vue&type=script&lang=js&":
+/*!*****************************************************************************!*\
+  !*** ./resources/js/components/StadiumProfile.vue?vue&type=script&lang=js& ***!
+  \*****************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_StadiumProfile_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./StadiumProfile.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/StadiumProfile.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_StadiumProfile_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/StadiumProfile.vue?vue&type=template&id=24cb17d2&scoped=true&":
+/*!***********************************************************************************************!*\
+  !*** ./resources/js/components/StadiumProfile.vue?vue&type=template&id=24cb17d2&scoped=true& ***!
+  \***********************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_StadiumProfile_vue_vue_type_template_id_24cb17d2_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./StadiumProfile.vue?vue&type=template&id=24cb17d2&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/StadiumProfile.vue?vue&type=template&id=24cb17d2&scoped=true&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_StadiumProfile_vue_vue_type_template_id_24cb17d2_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_StadiumProfile_vue_vue_type_template_id_24cb17d2_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

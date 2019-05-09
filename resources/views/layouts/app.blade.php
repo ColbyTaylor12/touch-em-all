@@ -20,14 +20,40 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <style>
         body {
+                margin: auto;
                 text-align: center;
                 font-family: 'Coda', cursive;
+                background-color: whitesmoke;
+                color: red;
             }
+
+      
+        @media screen and (min-device-width: 1200px) and (max-device-width: 1600px) and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) {
+            .stadiumList {
+            align-items: center;
+            justify-content: space-around;
+            display: flex;
+            float: none; 
+        }
+        .cards {
+            width: 30%;
+        }
+        }
+         /*iPhone X ------*/
+
+         @media only screen and (min-device-width: 375px) and (max-device-height: 812px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 3) {
+           
+        }
+
+        @media only screen and (min-device-width: 375px) and (max-device-height: 812px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 3) {
+           
+            }
+        }
         </style>
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
+        <nav class="navbar navbar-expand-md navbar-dark navbar-laravel bg-dark">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/home') }}">
                     Home

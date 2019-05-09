@@ -23,20 +23,31 @@ Route::get('/user-profile', function () {
     return view('user-profile');
 });
 
-Route::get('/stadium-profile', function () {
-    return view('stadium-profile');
-});
+// Route::get('/stadium-list', function () {
+//     return view('stadium-list');
+// });
 
-Route::get('/stadium-list', function () {
-    return view('stadium-list');
-});
+Route::get('/stadium-list', 'StadiumController@getAllStadiums');
 
-Route::get('/create-profile', function () {
-    return view('create-profile');
-});
+Route::get('/teams', 'TeamController@index');
+
+Route::get('/team', 'TeamController@show');
+
+Route::get('/stadium-profile/{id}', 'StadiumProfileController@show');
+
+
+
 
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/create-profile', function () {
+    return view('create-profile');
+});
+
+Route::resource('create_profile', 'UserProfileController');
+
+
 

@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\teams;
+use App\Team;
 use Illuminate\Http\Request;
 
-class TeamsController extends Controller
+class TeamController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,7 @@ class TeamsController extends Controller
      */
     public function index()
     {
-        //
+        return Team::all();
     }
 
     /**
@@ -44,9 +44,9 @@ class TeamsController extends Controller
      * @param  \App\teams  $teams
      * @return \Illuminate\Http\Response
      */
-    public function show(teams $teams)
+    public function show($id)
     {
-        //
+        return view('team', ['team' => Teams::findOrFail($id)]);
     }
 
     /**

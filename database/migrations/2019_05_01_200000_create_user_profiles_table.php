@@ -15,13 +15,15 @@ class CreateUserProfilesTable extends Migration
     {
         Schema::create('user_profiles', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->bigInteger('user_id')->unsigned();
             $table->string('username', 100);
-            $table->unsignedBigInteger('home_stadium');
+            $table->bigInteger('home_stadium')->unsigned();
+            $table->timestamps(); 
+        });
+
+        Schema::table('user_profiles', function (Blueprint $table) {
+            $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('home_stadium')->references('id')->on('stadiums');
-            $table->timestamps();
-            
         });
     }
 

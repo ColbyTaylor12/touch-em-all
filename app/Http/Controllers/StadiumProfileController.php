@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\stadium_profile;
+use App\Stadium_profile;
 use Illuminate\Http\Request;
 
 class StadiumProfileController extends Controller
@@ -14,9 +14,10 @@ class StadiumProfileController extends Controller
      */
     public function index()
     {
-        //
+        
     }
 
+    
     /**
      * Show the form for creating a new resource.
      *
@@ -44,9 +45,10 @@ class StadiumProfileController extends Controller
      * @param  \App\stadium_profile  $stadium_profile
      * @return \Illuminate\Http\Response
      */
-    public function show(stadium_profile $stadium_profile)
+    public function show($id)
     {
-        //
+        $stadium_profile = Stadium_profile::with("stadium")->findOrFail($id);
+        return view('stadium-profile', compact('stadium_profile'));
     }
 
     /**

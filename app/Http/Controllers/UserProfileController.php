@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\user_profile;
+use App\UserProfile;
 use Illuminate\Http\Request;
 
 class UserProfileController extends Controller
@@ -22,9 +22,12 @@ class UserProfileController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(array $data)
     {
-        //
+        return UserProfile::create([
+            'username' => $data['username'],
+            'home_stadium' => $data['home_stadium'],
+        ]);
     }
 
     /**
@@ -35,8 +38,16 @@ class UserProfileController extends Controller
      */
     public function store(Request $request)
     {
-        //
-    }
+        $user_profile = new UserProfile();
+
+        $user_profile->username = request('username');
+        $user_profile->home_stadium = request('home_stadium');
+
+        $user_profile->save();
+
+        return redirect('/home');
+         
+      }
 
     /**
      * Display the specified resource.

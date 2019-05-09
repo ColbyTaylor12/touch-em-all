@@ -21,7 +21,9 @@ window.Vue = require('vue');
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default));
 
 Vue.component('createprofile', require('./components/CreateProfile.vue').default);
-Vue.component('StadiumList', require('./components/StadiumList.vue').default);
+Vue.component('stadium-list', require('./components/StadiumList.vue').default);
+Vue.component('stadium-card', require('./components/StadiumCard.vue').default);
+Vue.component('stadium-profile', require('./components/StadiumProfile.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

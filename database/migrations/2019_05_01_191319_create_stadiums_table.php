@@ -16,10 +16,13 @@ class CreateStadiumsTable extends Migration
         Schema::create('stadiums', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->text('name');
-            $table->unsignedBigInteger('home_team');
-            $table->foreign('home_team')->references('id')->on('teams');
+            $table->bigInteger('home_team')->unsigned();
             $table->text('location');
             $table->text('year_opened');
+        });
+
+        Schema::table('stadiums', function (Blueprint $table) {
+            $table->foreign('home_team')->references('id')->on('teams');
         });
     }
 
