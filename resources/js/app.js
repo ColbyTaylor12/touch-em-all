@@ -20,7 +20,20 @@ window.Vue = require('vue');
 // const files = require.context('./', true, /\.vue$/i);
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default));
 
-Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+Vue.component('profile-header', require('./components/ProfileHeader.vue').default);
+Vue.component('stadium-list', require('./components/StadiumList.vue').default);
+Vue.component('stadium-card', require('./components/StadiumCard.vue').default);
+Vue.component('stadium-profile', require('./components/StadiumProfile.vue').default);
+Vue.component('feed', require('./components/Feed.vue').default);
+Vue.component('stadium-feed', require('./components/StadiumFeed.vue').default);
+Vue.component('experience', require('./components/Experience.vue').default);
+Vue.component('averages', require('./components/Averages.vue').default);
+Vue.component('ticket', require('./components/Ticket.vue').default);
+Vue.component('beer', require('./components/Beer.vue').default);
+Vue.component('soda', require('./components/Soda.vue').default);
+Vue.component('hot-dog', require('./components/HotDog.vue').default);
+
+
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
