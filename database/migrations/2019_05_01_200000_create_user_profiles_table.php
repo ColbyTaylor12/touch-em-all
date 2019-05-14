@@ -17,7 +17,7 @@ class CreateUserProfilesTable extends Migration
             $table->bigIncrements('id');
             $table->bigInteger('user_id')->unsigned();
             $table->string('username', 100);
-            $table->bigInteger('home_stadium')->unsigned();
+            $table->bigInteger('home_stadium')->unsigned()->nullable();
             $table->timestamps(); 
         });
 

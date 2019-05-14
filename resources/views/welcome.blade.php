@@ -161,7 +161,7 @@
                 <a href="{{ route('login') }}" class="button">Sign In</a>
             </div>
             <div class="col-4 pt-5">
-                <a href="/guest-home" class="button">Guest</a>
+                <a href="/stadium-list" class="button">Guest</a>
             </div>
         </div>
     </div>
@@ -191,9 +191,9 @@
             <h1>Our Mission</h1>
             <ul>
                 <li>Provide a way to track your journey through the MLB</li>
-                <li>Check in on others journey</li>
+                {{-- <li>Check in on others journey</li> --}}
                 <li>Provide Stadium Cost Averages</li>
-                <li>Interactions among avid fans and newcomers</li>
+                {{-- <li>Interactions among avid fans and newcomers</li> --}}
                 <li>Informative service to attract more fans to stadiums</li>
             </ul>
         </div>

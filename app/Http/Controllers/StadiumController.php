@@ -29,9 +29,12 @@ class StadiumController extends Controller
     }
 
   
-    public function show(stadiums $stadiums)
+    public function show(Request $request)
     {
-        //
+        //dd($request);
+        $id = $request->id;
+        $stadium = Stadium::findOrFail($id);
+        return json_encode($stadium);
     }
 
    

@@ -51,6 +51,13 @@ class StadiumProfileController extends Controller
         return view('stadium-profile', compact('stadium_profile'));
     }
 
+    public function getStadiumProfile(Request $request)
+    {
+        $id = $request->id;
+        $stadium_profile = Stadium_profile::findOrFail($id);
+        return json_encode($stadium_profile);
+    }
+
     /**
      * Show the form for editing the specified resource.
      *

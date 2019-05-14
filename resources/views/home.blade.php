@@ -1,10 +1,10 @@
 @extends('layouts.layout')
 
 @section('content')
-<div class="container">
+<div class="container" id="homepage">
     <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
+        <div class="col-12">
+            {{-- <div class="card">
                 <div class="card-header">Dashboard</div>
 
                 <div class="card-body">
@@ -16,8 +16,13 @@
 
                     You are logged in!
                 </div>
-            </div>
+            </div> --}}
+            <profile-header></profile-header>
+            <h1>My Experiences</h1>
+            {{-- <h1>{{$id}}</h1> --}}
+            <feed></feed>
         </div>
     </div>
 </div>
+
 @endsection

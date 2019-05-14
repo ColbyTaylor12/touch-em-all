@@ -12,5 +12,10 @@ class UserProfile extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function experiences() 
+    {
+        return $this->belongsToMany('App\Experience');
+    }
 }
 

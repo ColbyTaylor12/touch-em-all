@@ -35,6 +35,8 @@ Route::get('/team', 'TeamController@show');
 
 Route::get('/stadium-profile/{id}', 'StadiumProfileController@show');
 
+Route::get('/stadium-profile', 'StadiumProfileController@getStadiumProfile');
+
 
 
 
@@ -47,7 +49,28 @@ Route::get('/create-profile', function () {
     return view('create-profile');
 });
 
-Route::resource('create_profile', 'UserProfileController');
+Route::get('/create-experience', function () {
+    return view('create-experience');
+});
+
+Route::get('/edit-profile', function () {
+    return view('edit-profile');
+});
+
+Route::resource('/create_profile', 'UserProfileController');
+Route::resource('/edit_profile', 'UserProfileController');
+
+Route::resource('/create_experience', 'ExperienceController');
+
+Route::get('/profile-experiences', 'ExperienceController@show');
+
+Route::get('/user-profile', 'UserProfileController@show');
+
+Route::get('/profile-stadium', 'StadiumController@show');
+
+Route::get('/profile-experience', 'ExperienceController@index');
+Route::get('/stadium-experience', 'ExperienceController@getStadiumexp');
+
 
 
 

@@ -4,7 +4,7 @@
 
 
 @section('content')
-<h1 style="font-weight:900">Select A Stadium</h1>
+{{-- <h1 style="font-weight:900">Select A Stadium</h1> --}}
 <div class="">
     <div class="card-group stadiumList">
         @foreach($stadium as $stadium)

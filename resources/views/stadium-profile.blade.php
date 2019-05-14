@@ -24,7 +24,9 @@
 <h3>${{$stadium_profile -> hot_dog}}</h3>
 </div>
 </div>
+<stadium-feed class="pt-3"></stadium-feed>
 {{-- <stadium-profile :ticket="{{ $stadium_profile->ticket }}"></stadium-profile> --}}
+{{-- <averages></averages> --}}
 @endsection
 
 @section('script')

@@ -1,14 +1,15 @@
-@extends('layouts.layout')
+@extends('layouts.app')
 
 @section('title', 'Create Profile')
 
 @section('content')
-<h1 style="">Create Your Profile</h1>
-<form class="pt-5" method="POST" action="create_profile" enctype="multipart/form-data" style="background-color: gray">
-  {{csrf_field()}}
+<h1>Create Your Profile</h1>
+<form class="pt-5" method="POST" action="{{route('edit_profile.update', ['id'=>Auth::user()])}}" enctype="multipart/form-data">  
+    {{csrf_field()}}
+    {{-- {{method_field('PATCH')}} --}}
         <div class="form-group">
           <label for="username"><h2>Create Username</h2></label>
-          <input type="username" class="form-control" id="username" name="username" placeholder="The name you want displayed on your profile.">
+          <input type="username" class="form-control" id="username" name="username" type="hidden" value="PATCH" placeholder="username">
         </div>
         <div class="form-group">
           <label for="home_stadium"><h2>Home Stadium</h2></label>
@@ -45,11 +46,11 @@
             <option value="29">Camden Yards</option >
             <option value="30">Kauffman Stadium</option >
           </select>
-          <h4 class="pt-3">The home stadium option will be shown to other users so that they may view you as an expert on the stadium of your choice!</h4>
-          <h5>You may also leave the field blank if you don't have a favorite or hometown stadium.</h5>
         </div>
         <div>
-            <button type="submit"class="btn btn-primary">Create Profile</button>
+            <button type="submit"class="btn btn-primary">
+                Done
+            </button>
         </div>
       </form>
 @endsection
